@@ -1,4 +1,4 @@
-package com.cyanogenmod.MimmiParts;
+package com.cyanogenmod.settings.device;
 
 /**
  * Author: Madbulls@xda
@@ -109,28 +109,33 @@ public class MimmiKeyboard extends PreferenceActivity implements OnPreferenceCha
         AssetsManagment assetManager = new AssetsManagment(MimmiKeyboard.this);
         assetManager.unzipAssets();
         String filesDir = getFilesDir().getAbsolutePath();
-        String keychar1 = filesDir + "/"+layout+".bin";
+        String keychar1 = filesDir + "/"+layout+".kcm";
         String keylayout1 = filesDir + "/"+layout+".kl";
+        String id1 = filesDir + "/mimmi_keypad.idc";
         //ask for root permissions
         if (ShellInterface.isSuAvailable()){
             ShellInterface.runCommand("mount -o rw,remount /system");
             StringBuilder commandsList = new StringBuilder();
 
-            commandsList.append("cp " +keychar1+ " /system/usr/keychars/mimmi_keypad.kcm.bin ; ");
-            commandsList.append("chown 0:0 /system/usr/keychars/mimmi_keypad.kcm.bin ; ");
-            commandsList.append("chmod 644 /system/usr/keychars/mimmi_keypad.kcm.bin ; ");
+            commandsList.append("cp " +keychar1+ " /system/usr/keychars/mimmi_keypad.kcm ; ");
+            commandsList.append("chown 0:0 /system/usr/keychars/mimmi_keypad.kcm ; ");
+            commandsList.append("chmod 644 /system/usr/keychars/mimmi_keypad.kcm ; ");
 
-            commandsList.append("cp "+keychar1+" /system/usr/keychars/qwerty.kcm.bin ; ");
-            commandsList.append("chown 0:0 /system/usr/keychars/qwerty.kcm.bin ; ");
-            commandsList.append("chmod 664 /system/usr/keychars/qwerty.kcm.bin ; ");
+            commandsList.append("cp "+keychar1+" /system/usr/keychars/qwerty.kcm ; ");
+            commandsList.append("chown 0:0 /system/usr/keychars/qwerty.kcm ; ");
+            commandsList.append("chmod 664 /system/usr/keychars/qwerty.kcm ; ");
 
             commandsList.append("cp "+keylayout1+" /system/usr/keylayout/mimmi_keypad.kl ; ");
-            commandsList.append("chown 0:0 /system/usr/keychars/mimmi_keypad.kl ; ");
-            commandsList.append("chmod 664 /system/usr/keychars/mimmi_keypad.kl ; ");
+            commandsList.append("chown 0:0 /system/usr/keylayout/mimmi_keypad.kl ; ");
+            commandsList.append("chmod 664 /system/usr/keylayout/mimmi_keypad.kl ; ");
 
             commandsList.append("cp "+keylayout1+" /system/usr/keylayout/qwerty.kl ; ");
-            commandsList.append("chown 0:0 /system/usr/keychars/qwerty.kl ; ");
-            commandsList.append("chmod 664 /system/usr/keychars/qwerty.kl ; ");
+            commandsList.append("chown 0:0 /system/usr/keylayout/qwerty.kl ; ");
+            commandsList.append("chmod 664 /system/usr/keylayout/qwerty.kl ; ");
+            
+            commandsList.append("cp "+id1+" /system/usr/idc/mimmi_keypad.idc ; ");
+            commandsList.append("chown 0:0 /system/usr/idc/mimmi_keypad.idc ; ");
+            commandsList.append("chmod 664 /system/usr/idc/mimmi_keypad.idc ; ");
 
             commandsList.append("sync ; ");
             commandsList.append("reboot ; ");
@@ -165,7 +170,7 @@ public class MimmiKeyboard extends PreferenceActivity implements OnPreferenceCha
                 e.printStackTrace();
             }
         }
-    }   
+    }
     
     public static boolean writeOneLine(String fname, String value) {
     	try {

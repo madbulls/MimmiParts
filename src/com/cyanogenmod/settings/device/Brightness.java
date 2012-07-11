@@ -1,4 +1,4 @@
-package com.cyanogenmod.MimmiParts;
+package com.cyanogenmod.settings.device;
 
 /**
  * Author: Madbulls@xda

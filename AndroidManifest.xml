@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cyanogenmod.MimmiParts" android:versionCode="1" android:versionName="1.2">
-    
-    <uses-sdk android:minSdkVersion="8" />
-    <uses-permission android:name="android.permission.REBOOT"></uses-permission>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
-    
+      package="com.cyanogenmod.settings.device" 
+      android:sharedUserId="android.uid.system"
+      android:versionCode="1"
+      android:versionName="2.1">
+      <uses-sdk android:minSdkVersion="14" />
+      <uses-permission android:name="android.permission.REBOOT"></uses-permission>
+      <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
+
     <application android:label="@string/app_name" 
     	android:icon="@drawable/icon">
-        <activity android:name="MimmiParts"
+        <activity android:name="DeviceSettings"
                   android:label="@string/app_name">
             <intent-filter>
             	<action android:name="android.intent.action.MAIN" />
@@ -16,21 +18,28 @@
             	<category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Brightness"
+        <activity android:name="com.cyanogenmod.settings.device.Brightness"
             android:label="@string/lm3530_head">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.cyanogenmod.MimmiParts.SHORTCUT" />
+                <category android:name="com.cyanogenmod.settings.device.SHORTCUT" />
             </intent-filter>
         </activity>
-        <activity android:name=".MimmiKeyboard"
+        <activity android:name="com.cyanogenmod.settings.device.MimmiKeyboard"
             android:label="@string/keyboard_head">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="com.cyanogenmod.MimmiParts.SHORTCUT" />
+                <category android:name="com.cyanogenmod.settings.device.SHORTCUT" />
             </intent-filter>
         </activity>
-
+         <activity
+            android:name="com.cyanogenmod.settings.device.DensityChanger"
+            android:label="@string/lcd_density_wizard" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.cyanogenmod.settings.device.SHORTCUT" />
+            </intent-filter>
+        </activity>
+        
     </application>
-    	
 </manifest> 

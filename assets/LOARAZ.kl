@@ -13,6 +13,7 @@
 # limitations under the License.
 #
 #
+### Latin-on-arabic-azerty ###
 
 key 158   BACK              WAKE_DROPPED
 key 102   HOME              WAKE
@@ -24,8 +25,8 @@ key 85    FOCUS
 key 212   CAMERA            WAKE
 
 # Row 1
-key 16    Q                 WAKE_DROPPED
-key 17    W                 WAKE_DROPPED
+key 16    A                 WAKE_DROPPED
+key 17    Z                 WAKE_DROPPED
 key 18    E                 WAKE_DROPPED
 key 19    R                 WAKE
 key 20    T                 WAKE
@@ -36,7 +37,7 @@ key 24    O                 WAKE_DROPPED
 key 25    P                 WAKE_DROPPED
 
 # Row 2
-key 30    A                 WAKE_DROPPED
+key 30    Q                 WAKE_DROPPED
 key 31    S                 WAKE_DROPPED
 key 32    D                 WAKE_DROPPED
 key 33    F                 WAKE
@@ -48,7 +49,7 @@ key 38    L                 WAKE_DROPPED
 key 14    DEL               WAKE_DROPPED
 
 # Row 3
-key 44    Z                 WAKE_DROPPED
+key 44    W                 WAKE_DROPPED
 key 45    X                 WAKE_DROPPED
 key 46    C                 WAKE_DROPPED
 key 47    V                 WAKE
@@ -69,5 +70,8 @@ key 57    SPACE             WAKE_DROPPED
 key 15    SPACE             WAKE_DROPPED
 key 106   DPAD_DOWN         WAKE_DROPPED
 key 40    APOSTROPHE        WAKE_DROPPED
-key 216   SYM               WAKE_DROPPED
+# Key code SYM is used by platform to open InputMethodSelectionDialog, use
+# META_RIGHT instead.
+key 216   META_RIGHT        WAKE_DROPPED
+
 
